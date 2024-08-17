@@ -35,7 +35,7 @@ def parameters(module, path, config):
     kc_hostport = config['keycloak']['port']
     kc_openid_config_url = f'http://{kc_hostname}:{kc_hostport}/realms/{tenant}/.well-known/openid-configuration'
     kc_openid_client_id = 'minio'
-    kc_openid_client_secret = 'AE9x8lEmWwuAy7g4jwLqCVxZXOKY6jvF'
+    kc_openid_client_secret = 'KbCk2k3JDRDUFO1Wj5faL1oUZRyqW0hp'
     kc_openid_display_name = title
     kc_openid_scopes = 'openid'
     kc_openid_redirect_uri = f'https://{endpoint}/minio/ui/oauth_callback'
