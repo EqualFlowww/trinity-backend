@@ -36,9 +36,13 @@ def parameters(module, path, config):
 
     with open(f'{path}/{module}/conf.d/environment.js', 'w') as fd: fd.write(\
 f"""
-const DEFAULT_AUTH_URL = "https://{endpoint}/auth"
+const DEFAULT_ENDPOINT = "{endpoint}";
+const DEFAULT_BASE_URL = "https://{endpoint}";
+const DEFAULT_AUTH_URL = "https://{endpoint}/auth";
 const DEFAULT_AUTH_REALM = "{tenant}";
 const DEFAULT_AUTH_CLIENT_ID = "{tenant}";
+const DEFAULT_DATA_SERVICE = {'true' if 'minio' in modules else 'false'};
+const DEFAULT_TERM_SERVICE = {'true' if 'guacamole' in modules else 'false'};
 """
 )
 

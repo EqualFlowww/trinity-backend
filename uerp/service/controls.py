@@ -14,8 +14,8 @@ from driver.redis import RedisModel
 from driver.elasticsearch import ElasticSearch
 from driver.postgresql import PostgreSql
 
-from schema.secret.certification import Authority, Server
-from schema.secret.access import OpenSsh
+from schema.demo.device import Cart
+from schema.demo.operation import Round
 
 
 #===============================================================================
@@ -34,8 +34,7 @@ class Control(UerpControl):
         )
 
     async def startup(self):
-        await self.registerModel(Authority)
-        await self.registerModel(Server)
-        await self.registerModel(OpenSsh)
+        await self.registerModel(Cart)
+        await self.registerModel(Round)
 
     async def shutdown(self): pass

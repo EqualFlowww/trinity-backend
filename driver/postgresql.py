@@ -86,7 +86,7 @@ class PostgreSql(ModelDriverBase):
                 elif exprType == To: return f"{fieldName} <{'=' if node.expr.include else ''} {node.expr.a}"
             else:
                 result = self.__parseLuceneToTsquery__(node.expr)
-                if result: return f"{fieldName}@@'{result}'::tsquery"
+                if result: return f"{fieldName}@@to_tsquery('{result}')"
             return None
         elif nodeType == Group:
             result = self.__parseLuceneToTsquery__(node.expr)
@@ -262,6 +262,8 @@ class PostgreSql(ModelDriverBase):
             condition = f'{condition} LIMIT {search.size}'
         if search.skip: condition = f'{condition} OFFSET {search.skip}'
         query = f'SELECT {columns} FROM {info.dref} WHERE deleted=FALSE{condition};'
+
+        LOG.DEBUG(query)
 
         cursor = self._psql.cursor()
         try:

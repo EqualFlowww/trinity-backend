@@ -1,0 +1,404 @@
+{
+	"TMP_CART_SUMMARY_DATA_COLLECTION": {
+		"0": {
+			"id": "0",
+			"name": "123",
+			"type": "round",
+			"manager": {
+				"name": "김철수",
+				"type": "caddy"
+			},
+			"isWarning": false,
+			"isBatteryAlert": false,
+			"isPersonAlert": false,
+			"location": {
+				"x": 37.5665,
+				"y": 126.978
+			},
+			"roundId": "0"
+		},
+		"1": {
+			"id": "1",
+			"name": "456",
+			"type": "round",
+			"manager": {
+				"name": "홍길동",
+				"type": "caddy"
+			},
+			"isWarning": true,
+			"isBatteryAlert": false,
+			"isPersonAlert": false,
+			"location": {
+				"x": 37.5665,
+				"y": 126.978
+			},
+			"roundId": "1"
+		},
+		"2": {
+			"id": "2",
+			"name": "789",
+			"type": "round",
+			"manager": {
+				"name": "김철수",
+				"type": "caddy"
+			},
+			"isWarning": false,
+			"isBatteryAlert": true,
+			"isPersonAlert": false,
+			"location": {
+				"x": 37.5665,
+				"y": 126.978
+			},
+			"roundId": "2"
+		},
+		"3": {
+			"id": "3",
+			"name": "112",
+			"type": "round",
+			"manager": {
+				"name": "홍길동",
+				"type": "caddy"
+			},
+			"isWarning": true,
+			"isBatteryAlert": true,
+			"isPersonAlert": false,
+			"location": {
+				"x": 37.5665,
+				"y": 126.978
+			},
+			"roundId": "3"
+		},
+		"4": {
+			"id": "4",
+			"name": "135",
+			"type": "round",
+			"manager": {
+				"name": "김철수",
+				"type": "caddy"
+			},
+			"isWarning": false,
+			"isBatteryAlert": false,
+			"isPersonAlert": true,
+			"location": {
+				"x": 37.5665,
+				"y": 126.978
+			},
+			"roundId": "4"
+		},
+		"5": {
+			"id": "5",
+			"name": "718",
+			"type": "round",
+			"manager": {
+				"name": "홍길동",
+				"type": "caddy"
+			},
+			"isWarning": true,
+			"isBatteryAlert": false,
+			"isPersonAlert": true,
+			"location": {
+				"x": 37.5665,
+				"y": 126.978
+			},
+			"roundId": "5"
+		},
+		"6": {
+			"id": "6",
+			"name": "191",
+			"type": "round",
+			"manager": {
+				"name": "김철수",
+				"type": "caddy"
+			},
+			"isWarning": false,
+			"isBatteryAlert": true,
+			"isPersonAlert": true,
+			"location": {
+				"x": 37.5665,
+				"y": 126.978
+			},
+			"roundId": "6"
+		},
+		"7": {
+			"id": "7",
+			"name": "222",
+			"type": "round",
+			"manager": {
+				"name": "홍길동",
+				"type": "caddy"
+			},
+			"isWarning": true,
+			"isBatteryAlert": true,
+			"isPersonAlert": true,
+			"location": {
+				"x": 37.5665,
+				"y": 126.978
+			},
+			"roundId": "7"
+		},
+		"8": {
+			"id": "8",
+			"name": "333",
+			"type": "round",
+			"manager": {
+				"name": "김철수",
+				"type": "caddy"
+			},
+			"isWarning": false,
+			"isBatteryAlert": false,
+			"isPersonAlert": false,
+			"location": {
+				"x": 37.5665,
+				"y": 126.978
+			},
+			"roundId": "8"
+		},
+		"9": {
+			"id": "9",
+			"name": "444",
+			"type": "round",
+			"manager": {
+				"name": "홍길동",
+				"type": "caddy"
+			},
+			"isWarning": true,
+			"isBatteryAlert": false,
+			"isPersonAlert": false,
+			"location": {
+				"x": 37.5665,
+				"y": 126.978
+			},
+			"roundId": "9"
+		},
+		"10": {
+			"id": "10",
+			"name": "555",
+			"type": "work",
+			"manager": {
+				"name": "김철수",
+				"type": "caddy"
+			},
+			"isWarning": false,
+			"isBatteryAlert": true,
+			"isPersonAlert": false,
+			"location": {
+				"x": 37.5665,
+				"y": 126.978
+			}
+		},
+		"11": {
+			"id": "11",
+			"name": "666",
+			"type": "waiting",
+			"manager": {
+				"name": "홍길동",
+				"type": "caddy"
+			},
+			"isWarning": true,
+			"isBatteryAlert": true,
+			"isPersonAlert": false,
+			"location": {
+				"x": 37.5665,
+				"y": 126.978
+			}
+		},
+		"12": {
+			"id": "12",
+			"name": "777",
+			"type": "training",
+			"manager": {
+				"name": "김철수",
+				"type": "caddy"
+			},
+			"isWarning": false,
+			"isBatteryAlert": false,
+			"isPersonAlert": true,
+			"location": {
+				"x": 37.5665,
+				"y": 126.978
+			}
+		}
+	},
+	"TMP_ROUND_SUMMARY_DATA_COLLECTION": {
+		"0": {
+			"id": "0",
+			"name": "ROUND 1",
+			"half": "first",
+			"order": "first",
+			"isVip": false,
+			"isNineHolePlus": false,
+			"currentHole": {
+				"number": 9,
+				"courseType": "out",
+				"startTime": "12:00",
+				"elapsedTime": "00:30",
+				"scheduledEndTime": "12:30"
+			},
+			"cartIdList": [
+				"0"
+			]
+		},
+		"1": {
+			"id": "1",
+			"name": "ROUND 2",
+			"half": "second",
+			"order": "middle",
+			"isVip": true,
+			"isNineHolePlus": true,
+			"currentHole": {
+				"number": 10,
+				"courseType": "in",
+				"startTime": "12:30",
+				"elapsedTime": "01:00",
+				"scheduledEndTime": "13:30"
+			},
+			"cartIdList": [
+				"1"
+			]
+		},
+		"2": {
+			"id": "2",
+			"name": "ROUND 3",
+			"half": "first",
+			"order": "last",
+			"isVip": false,
+			"isNineHolePlus": false,
+			"currentHole": {
+				"number": 4,
+				"courseType": "out",
+				"startTime": "13:30",
+				"elapsedTime": "00:30",
+				"scheduledEndTime": "14:00"
+			},
+			"cartIdList": [
+				"2"
+			]
+		},
+		"3": {
+			"id": "3",
+			"name": "ROUND 4",
+			"half": "second",
+			"order": "first",
+			"isVip": true,
+			"isNineHolePlus": true,
+			"currentHole": {
+				"number": 18,
+				"courseType": "in",
+				"startTime": "14:00",
+				"elapsedTime": "00:30",
+				"scheduledEndTime": "14:30"
+			},
+			"cartIdList": [
+				"3"
+			]
+		},
+		"4": {
+			"id": "4",
+			"name": "ROUND 5",
+			"half": "first",
+			"order": "middle",
+			"isVip": false,
+			"isNineHolePlus": false,
+			"currentHole": {
+				"number": 9,
+				"courseType": "out",
+				"startTime": "14:30",
+				"elapsedTime": "00:30",
+				"scheduledEndTime": "15:00"
+			},
+			"cartIdList": [
+				"4"
+			]
+		},
+		"5": {
+			"id": "5",
+			"name": "ROUND 6",
+			"half": "second",
+			"order": "last",
+			"isVip": true,
+			"isNineHolePlus": true,
+			"currentHole": {
+				"number": 10,
+				"courseType": "in",
+				"startTime": "15:00",
+				"elapsedTime": "00:30",
+				"scheduledEndTime": "15:30"
+			},
+			"cartIdList": [
+				"5"
+			]
+		},
+		"6": {
+			"id": "6",
+			"name": "ROUND 7",
+			"half": "first",
+			"order": "first",
+			"isVip": false,
+			"isNineHolePlus": false,
+			"currentHole": {
+				"number": 4,
+				"courseType": "out",
+				"startTime": "15:30",
+				"elapsedTime": "00:30",
+				"scheduledEndTime": "16:00"
+			},
+			"cartIdList": [
+				"6"
+			]
+		},
+		"7": {
+			"id": "7",
+			"name": "ROUND 8",
+			"half": "second",
+			"order": "middle",
+			"isVip": true,
+			"isNineHolePlus": true,
+			"currentHole": {
+				"number": 18,
+				"courseType": "in",
+				"startTime": "16:00",
+				"elapsedTime": "00:30",
+				"scheduledEndTime": "16:30"
+			},
+			"cartIdList": [
+				"7"
+			]
+		},
+		"8": {
+			"id": "8",
+			"name": "ROUND 9",
+			"half": "first",
+			"order": "last",
+			"isVip": false,
+			"isNineHolePlus": false,
+			"currentHole": {
+				"number": 9,
+				"courseType": "out",
+				"startTime": "16:30",
+				"elapsedTime": "00:30",
+				"scheduledEndTime": "17:00"
+			},
+			"cartIdList": [
+				"8"
+			]
+		},
+		"9": {
+			"id": "9",
+			"name": "ROUND 10",
+			"half": "second",
+			"order": "first",
+			"isVip": true,
+			"isNineHolePlus": true,
+			"currentHole": {
+				"number": 10,
+				"courseType": "in",
+				"startTime": "17:00",
+				"elapsedTime": "00:30",
+				"scheduledEndTime": "17:30"
+			},
+			"cartIdList": [
+				"9"
+			]
+		}
+	}
+}
