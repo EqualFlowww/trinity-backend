@@ -67,6 +67,6 @@ def parameters(module, path, config):
         'healthcheck': healthcheck,
         'restart_policy': restart_policy
     }
-    post_exec = f'/usr/share/elasticsearch/bin/elasticsearch-users useradd {system_access_key} -p {system_secret_key} -r superuser -s'
+    post_exec = f'/usr/share/elasticsearch/bin/elasticsearch-users useradd {system_access_key} -p "{system_secret_key}" -r superuser -s'
 
     return (f'{tenant}/{module}:{version}', command, options, post_exec)
