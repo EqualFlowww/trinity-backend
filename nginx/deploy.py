@@ -161,7 +161,7 @@ http {
     ]
 
     ports = {
-        f'{port}/tcp': (host, port)
+        f'{port}/tcp': (host, 9443)
     } if export else {}
 
     volumes = [
