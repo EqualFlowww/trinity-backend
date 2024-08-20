@@ -76,6 +76,6 @@ def mapping():
         res.raise_for_status()
 
 # remove()
-insert()
-# mapping()
+# insert()
+mapping()
 
