@@ -34,18 +34,6 @@ def parameters(module, path, config):
     publish = os.path.abspath(modconf['publish'])
     proxies = filter(None, [p.strip() for p in modconf['proxies'].split(',')])
 
-    with open(f'{path}/{module}/conf.d/environment.js', 'w') as fd: fd.write(\
-f"""
-const DEFAULT_ENDPOINT = "{endpoint}";
-const DEFAULT_BASE_URL = "https://{endpoint}";
-const DEFAULT_AUTH_URL = "https://{endpoint}/auth";
-const DEFAULT_AUTH_REALM = "{tenant}";
-const DEFAULT_AUTH_CLIENT_ID = "{tenant}";
-const DEFAULT_DATA_SERVICE = {'true' if 'minio' in modules else 'false'};
-const DEFAULT_TERM_SERVICE = {'true' if 'guacamole' in modules else 'false'};
-"""
-)
-
     upstreams = ''
     locations = ''
 
@@ -161,8 +149,6 @@ http {
             proxy_pass http://keycloak/;
         }
 %s
-        location /environment.js { alias /environment.js; }
-
         location / { alias /webroot/; }
     }
 
@@ -175,16 +161,12 @@ http {
     ]
 
     ports = {
-        # f'{port}/tcp': (host, port)
-        # f'{port}/tcp': (host, 8443)
-        # f'9443/tcp': (host, port)
-        f'{port}/tcp': (host, 9443)
+        f'{port}/tcp': (host, port)
     } if export else {}
 
     volumes = [
         f'{path}/{module}/conf.d/nginx.conf:/etc/nginx/nginx.conf',
-        f'{path}/{module}/conf.d/environment.js:/environment.js',
-        f'{publish}/webroot:/webroot',
+        f'{publish}:/webroot',
         f'{path}/webcert:/webcert',
         f'{path}/{module}/data.d:/data.d',
         f'{path}/{module}/back.d:/back.d'

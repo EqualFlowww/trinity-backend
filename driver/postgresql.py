@@ -263,8 +263,6 @@ class PostgreSql(ModelDriverBase):
         if search.skip: condition = f'{condition} OFFSET {search.skip}'
         query = f'SELECT {columns} FROM {info.dref} WHERE deleted=FALSE{condition};'
 
-        LOG.DEBUG(query)
-
         cursor = self._psql.cursor()
         try:
             await cursor.execute(query)
