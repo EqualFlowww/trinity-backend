@@ -78,7 +78,7 @@ def mapping():
 
 # insert()
 # time.sleep(3)
-mapping()
-# remove()
+# mapping()
+remove()
 
 
