@@ -50,7 +50,13 @@ async def connect_cart_websocket(
     org: str | None=None
 ):
     cartId = str(cartId)
+    LOG.DEBUG(org)
+    LOG.DEBUG(token)
+    LOG.DEBUG(cartId)
     cart = await Cart.readModelByID(cartId, token=token, org=org)
+    LOG.DEBUG(cart)
+    LOG.DEBUG('DONE')
+
     await socket.accept()
     if cartId not in ctrl.cartSockets: ctrl.cartSockets[cartId] = []
     ctrl.cartSockets[cartId].append(socket)
