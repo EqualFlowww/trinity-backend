@@ -39,16 +39,17 @@ class Control(MeshControl):
     async def sendDataToUsername(self, username, key, value):
         if username not in self._sockets: return None
         payload = {'k': key, 'v': value}
-        for socket in self._sockets[username]:
-            try: socket.send_json(payload)
-            except: pass
+        if username in self._sockets:
+            for socket in self._sockets[username]:
+                try: await socket.send_json(payload)
+                except Exception as e: LOG.ERROR(e)
         return payload
 
     async def sendDataToAdmin(self, key, value):
         payload = {'k': key, 'v': value}
         for socket in self._admins:
-            try: socket.send_json(payload)
-            except: pass
+            try: await socket.send_json(payload)
+            except Exception as e: LOG.ERROR(e)
         return payload
 
     async def registerAdminConnection(self, socket, token, org):
