@@ -93,14 +93,22 @@ class Control(MeshControl):
 
             LOG.DEBUG(5)
 
-            message = (await Message(
+            message = Message(
                 content=val['content'],
                 username=val['username'],
                 roomId=roomId,
                 unreadUsernames=unreadUsernames
-            ).createModel(token, org)).model_dump()
+            )
 
             LOG.DEBUG(6)
+
+            message = await message.createModel(token, org)
+
+            LOG.DEBUG(7)
+
+            message = message.model_dump()
+
+            LOG.DEBUG(8)
 
             for username in unreadUsernames:
                 await self.sendDataToUsername(username, 'md', message)
