@@ -8,6 +8,7 @@ Equal Plus
 # Import
 #===============================================================================
 import json
+import time
 import requests
 
 #===============================================================================
@@ -75,8 +76,8 @@ def mapping():
         res = requests.put(f'{baseUrl}/uerp/v1/demo/operation/round/{round["id"]}', headers=headers, json=round, verify=False)
         res.raise_for_status()
 
-insert()
-sleep(3)
+# insert()
+# time.sleep(3)
 mapping()
 # remove()
 
