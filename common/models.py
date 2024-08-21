@@ -260,8 +260,6 @@ class BaseSchema(StatusSchema, IdentSchema):
                 headers = {}
                 if token: headers['Authorization'] = f'Bearer {token}'
                 if org: headers['Organization'] = org
-                LOG.DEBUG(f'{schemaInfo.path}/{id}')
-                LOG.DEBUG(headers)
                 async with AsyncRest(schemaInfo.provider) as rest: return cls(**(await rest.get(f'{schemaInfo.path}/{id}', headers=headers)))
             else: raise EpException(405, 'Method Not Allowed')
         elif schemaInfo.provider: return await schemaInfo.provider.readModel(cls, str(id))
