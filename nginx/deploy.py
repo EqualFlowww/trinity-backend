@@ -149,7 +149,9 @@ http {
             proxy_pass http://keycloak/;
         }
 %s
-        location / { alias /webroot/; }
+        location /webroot/ { alias /webroot/; }
+
+        location / { alias /dist/; }
     }
 
     upstream keycloak { server keycloak:8080; }
