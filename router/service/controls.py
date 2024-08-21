@@ -13,7 +13,7 @@ from common import MeshControl, AsyncRest
 
 from schema.demo.device import Cart
 from schema.demo.operation import Round
-from schema.demo.chat import Room, Message
+from schema.demo.chat import Message
 
 
 #===============================================================================

@@ -42,19 +42,4 @@ async def connect_cart_websocket(
     token: str,
     org: str | None=None
 ):
-    cartId = str(cartId)
-    cart = await Cart.readModelByID(cartId, token=token, org=org)
-
-    await socket.accept()
-    if cartId not in ctrl.cartSockets: ctrl.cartSockets[cartId] = []
-    ctrl.cartSockets[cartId].append(socket)
-
-    await socket.send_json(cart.model_dump())
-    while True:
-        try:
-            await ctrl.parseCartData(cartId, token, org, await socket.receive_json())
-        except WebSocketDisconnect:
-            ctrl.cartSockets[cartId].remove(socket)
-            break
-        except Exception as e:
-            LOG.ERROR(e)
+    await ctrl.registerCartConnection(socket, token, org, str(cartId))
