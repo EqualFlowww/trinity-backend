@@ -356,6 +356,10 @@ class BaseSchema(StatusSchema, IdentSchema):
 
                 LOG.DEBUG('h')
 
+                LOG.DEBUG(schemaInfo.provider)
+                LOG.DEBUG(schemaInfo.path)
+                LOG.DEBUG(self)
+
                 async with AsyncRest(schemaInfo.provider) as rest: model = await rest.post(f'{schemaInfo.path}', headers=headers, json=self.model_dump())
 
                 LOG.DEBUG('i')
