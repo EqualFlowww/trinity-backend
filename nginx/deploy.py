@@ -166,7 +166,8 @@ http {
 
     volumes = [
         f'{path}/{module}/conf.d/nginx.conf:/etc/nginx/nginx.conf',
-        f'{publish}:/webroot',
+        f'{publish}/dist:/dist',
+        f'{publish}/webroot:/webroot',
         f'{path}/webcert:/webcert',
         f'{path}/{module}/data.d:/data.d',
         f'{path}/{module}/back.d:/back.d'
