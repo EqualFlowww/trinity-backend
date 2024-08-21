@@ -13,7 +13,7 @@ from common import MeshControl, AsyncRest
 
 from schema.demo.device import Cart
 from schema.demo.operation import Round
-from schema.demo.chat import Message
+from schema.demo.chat import Room, Message
 
 
 #===============================================================================
@@ -33,6 +33,8 @@ class Control(MeshControl):
     async def startup(self):
         await self.registerModel(Cart, 'uerp')
         await self.registerModel(Round, 'uerp')
+        await self.registerModel(Room, 'uerp')
+        await self.registerModel(Message, 'uerp')
 
     async def shutdown(self): pass
 
