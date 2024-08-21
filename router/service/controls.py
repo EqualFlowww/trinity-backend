@@ -100,7 +100,7 @@ class Control(MeshControl):
                 unreadUsernames=unreadUsernames
             )
 
-            LOG.DEBUG(6)
+            LOG.DEBUG(message)
 
             message = await message.createModel(token, org)
 
