@@ -74,17 +74,34 @@ class Control(MeshControl):
                 break
 
     async def parseAdminData(self, token, org, data):
+        LOG.DEBUG(1)
+
         key = data['k']
         val = data['v']
+
+        LOG.DEBUG(2)
+
         if key == 'msg':
+
+            LOG.DEBUG(3)
+
             roomId = val['roomId']
+
+            LOG.DEBUG(4)
+
             unreadUsernames = val['unreadUsernames']
+
+            LOG.DEBUG(5)
+
             message = (await Message(
                 content=val['content'],
                 username=val['username'],
                 roomId=roomId,
                 unreadUsernames=unreadUsernames
             ).createModel(token, org)).model_dump()
+
+            LOG.DEBUG(6)
+
             for username in unreadUsernames:
                 await self.sendDataToUsername(username, 'md', message)
 
