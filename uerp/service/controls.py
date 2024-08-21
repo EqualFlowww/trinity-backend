@@ -16,6 +16,7 @@ from driver.postgresql import PostgreSql
 
 from schema.demo.device import Cart
 from schema.demo.operation import Round
+from schema.demo.chat import Message, Room
 
 
 #===============================================================================
@@ -36,5 +37,7 @@ class Control(UerpControl):
     async def startup(self):
         await self.registerModel(Cart)
         await self.registerModel(Round)
+        await self.registerModel(Room)
+        await self.registerModel(Message)
 
     async def shutdown(self): pass
