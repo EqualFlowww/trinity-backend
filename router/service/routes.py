@@ -40,6 +40,8 @@ async def connect_admin_websocket(
         except WebSocketDisconnect:
             ctrl.adminSockets.remove(socket)
             break
+        except Exception as e:
+            LOG.ERROR(e)
 
 
 @api.websocket(f'{ctrl.uri}/websocket/cart/{{cartId}}')
@@ -50,20 +52,18 @@ async def connect_cart_websocket(
     org: str | None=None
 ):
     cartId = str(cartId)
-    LOG.DEBUG(org)
-    LOG.DEBUG(token)
-    LOG.DEBUG(cartId)
     cart = await Cart.readModelByID(cartId, token=token, org=org)
-    LOG.DEBUG(cart)
-    LOG.DEBUG('DONE')
 
     await socket.accept()
     if cartId not in ctrl.cartSockets: ctrl.cartSockets[cartId] = []
     ctrl.cartSockets[cartId].append(socket)
+
+    await socket.send_json(cart.model_dump())
     while True:
         try:
-            await socket.send_json(cart.model_dump())
             await ctrl.parseCartData(cartId, token, org, await socket.receive_json())
         except WebSocketDisconnect:
             ctrl.cartSockets[cartId].remove(socket)
             break
+        except Exception as e:
+            LOG.ERROR(e)

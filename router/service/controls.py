@@ -38,8 +38,8 @@ class Control(MeshControl):
 
     async def parseCartData(self, cartId, token, org, data):
         cart = await Cart.readModelByID(cartId, token=token, org=org)
-        if data['type'] == 'gps':
-            x, y = data['body']
+        if data['k'] == 'gps':
+            x, y = data['v']
             cart.location.x = x
             cart.location.y = y
         cart = await cart.updateModel(token=token, org=org)
