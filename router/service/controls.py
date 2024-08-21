@@ -113,11 +113,25 @@ class Control(MeshControl):
                 break
 
     async def parseCartData(self, token, org, cartId, data):
-        if data['k'] == 'gps':
+        key = data['k']
+        val = data['v']
+        if key == 'gps':
             cart = await Cart.readModelByID(cartId, token=token, org=org)
-            lat, lon = data['v']
+            lat, lon = val
             cart.location.x = lon
             cart.location.y = lat
             cart = (await cart.updateModel(token=token, org=org)).model_dump()
             await self.sendDataToAdmin('md', cart)
-
+        elif key == 'msg':
+            roomId = val['roomId']
+            unreadUsernames = val['unreadUsernames']
+            message = Message(
+                content=val['content'],
+                username=val['username'],
+                roomId=roomId,
+                unreadUsernames=unreadUsernames
+            )
+            message = await message.createModel(token, org)
+            message = message.model_dump()
+            for username in unreadUsernames:
+                await self.sendDataToUsername(username, 'md', message)
