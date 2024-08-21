@@ -325,14 +325,41 @@ class BaseSchema(StatusSchema, IdentSchema):
         else: raise EpException(501, 'Not Implemented')
 
     async def createModel(self, token=None, org=None):
+
+        LOG.DEBUG('a')
+
         schemaInfo = self.__class__.getSchemaInfo()
+
+        LOG.DEBUG('b')
+
         if type(schemaInfo.provider) == str:
+
+            LOG.DEBUG('c')
+
             if CRUD.checkCreate(schemaInfo.crud):
+
+                LOG.DEBUG('d')
+
                 headers = {}
+
+                LOG.DEBUG('e')
+
                 if token: headers['Authorization'] = f'Bearer {token}'
+
+                LOG.DEBUG('f')
+
                 if org: headers['Organization'] = org
+
+                LOG.DEBUG('g')
+
                 self.id = _EMPTY_UUID
+
+                LOG.DEBUG('h')
+
                 async with AsyncRest(schemaInfo.provider) as rest: model = await rest.post(f'{schemaInfo.path}', headers=headers, json=self.model_dump())
+
+                LOG.DEBUG('i')
+
                 return self.__class__(**model)
             else: raise EpException(405, 'Method Not Allowed')
         elif schemaInfo.provider:
