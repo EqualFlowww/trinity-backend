@@ -76,9 +76,9 @@ def mapping():
         res = requests.put(f'{baseUrl}/uerp/v1/demo/operation/round/{round["id"]}', headers=headers, json=round, verify=False)
         res.raise_for_status()
 
-# insert()
-# time.sleep(3)
-# mapping()
-remove()
+insert()
+time.sleep(3)
+mapping()
+# remove()
 
 
