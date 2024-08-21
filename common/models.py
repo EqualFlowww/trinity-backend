@@ -40,7 +40,7 @@ class Search:
         size:int | None=None,
         skip:int | None=None,
     ):
-        if fields: self.fields = _REFERENCE_FIELDS + list(set(self.fields) - _REFERENCE_SETS)
+        if fields: self.fields = _REFERENCE_FIELDS + list(set(fields) - _REFERENCE_SETS)
         else: self.fields = None
         self.filter = filter
         self.orderBy = orderBy
