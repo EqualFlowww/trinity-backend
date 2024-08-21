@@ -15,7 +15,7 @@ from common import SECONDS, AAA, SchemaConfig, Option, Key, BaseSchema, ProfSche
 # Implement
 #===============================================================================
 @SchemaConfig(
-version=2,
+version=3,
 aaa=AAA.A,
 cache=Option(expire=SECONDS.HOUR),
 search=Option(expire=SECONDS.DAY))
@@ -27,7 +27,7 @@ class Message(BaseModel, BaseSchema):
 
 
 @SchemaConfig(
-version=2,
+version=3,
 aaa=AAA.A,
 cache=Option(expire=SECONDS.HOUR),
 search=Option(expire=SECONDS.DAY))
