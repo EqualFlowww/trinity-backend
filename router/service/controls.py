@@ -66,7 +66,12 @@ class Control(MeshControl):
                 self._sockets[username].remove(socket)
                 self._admins.remove(socket)
                 break
-            except Exception as e: LOG.ERROR(e)
+            except Exception as e:
+                LOG.ERROR(e)
+                self._sockets[username].remove(socket)
+                self._admins.remove(socket)
+                await socket.close()
+                break
 
     async def parseAdminData(self, token, org, data):
         key = data['k']
@@ -75,10 +80,10 @@ class Control(MeshControl):
             roomId = val['roomId']
             unreadUsernames = val['unreadUsernames']
             message = (await Message(
-                content = val['content'],
-                username = val['username'],
-                roomId = roomId,
-                unreadUsernames = unreadUsernames
+                content=val['content'],
+                username=val['username'],
+                roomId=roomId,
+                unreadUsernames=unreadUsernames
             ).createModel(token, org)).model_dump()
             for username in unreadUsernames:
                 await self.sendDataToUsername(username, 'md', message)
@@ -97,12 +102,14 @@ class Control(MeshControl):
             except WebSocketDisconnect:
                 self._sockets[username].remove(socket)
                 break
-            except Exception as e: LOG.ERROR(e)
+            except Exception as e:
+                LOG.ERROR(e)
+                self._sockets[username].remove(socket)
+                await socket.close()
+                break
 
     async def parseCartData(self, token, org, cartId, data):
-        key = data['k']
-        val = data['v']
-        if key == 'gps':
+        if data['k'] == 'gps':
             cart = await Cart.readModelByID(cartId, token=token, org=org)
             x, y = data['v']
             cart.location.x = x
