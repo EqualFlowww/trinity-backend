@@ -32,16 +32,7 @@ async def connect_admin_websocket(
     token: str,
     org: str | None=None
 ):
-    await socket.accept()
-    ctrl.adminSockets.append(socket)
-    while True:
-        try:
-            await ctrl.parseAdminData(await socket.receive_json())
-        except WebSocketDisconnect:
-            ctrl.adminSockets.remove(socket)
-            break
-        except Exception as e:
-            LOG.ERROR(e)
+    await ctrl.registerAdminConnection(socket, token, org)
 
 
 @api.websocket(f'{ctrl.uri}/websocket/cart/{{cartId}}')

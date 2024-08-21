@@ -15,19 +15,19 @@ from common import SECONDS, AAA, SchemaConfig, Option, Key, BaseSchema, ProfSche
 # Implement
 #===============================================================================
 @SchemaConfig(
-version=1,
+version=2,
 aaa=AAA.A,
 cache=Option(expire=SECONDS.HOUR),
 search=Option(expire=SECONDS.DAY))
 class Message(BaseModel, BaseSchema):
     content:str = ''
-    senderId:Key = ''
-    chatRoomId:Key = ''
-    unreadUserIds:list[str] = []
+    username:Key = ''
+    roomId:Key = ''
+    unreadUsernames:list[str] = []
 
 
 @SchemaConfig(
-version=1,
+version=2,
 aaa=AAA.A,
 cache=Option(expire=SECONDS.HOUR),
 search=Option(expire=SECONDS.DAY))
