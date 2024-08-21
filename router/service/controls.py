@@ -111,9 +111,9 @@ class Control(MeshControl):
     async def parseCartData(self, token, org, cartId, data):
         if data['k'] == 'gps':
             cart = await Cart.readModelByID(cartId, token=token, org=org)
-            x, y = data['v']
-            cart.location.x = x
-            cart.location.y = y
+            lat, lon = data['v']
+            cart.location.x = lon
+            cart.location.y = lat
             cart = (await cart.updateModel(token=token, org=org)).model_dump()
             await self.sendDataToAdmin('md', cart)
 
