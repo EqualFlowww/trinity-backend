@@ -24,15 +24,15 @@ headers = {
 
 
 def remove():
-    res = requests.get(f'{baseUrl}/uerp/v1/demo/device/cart', headers=headers, verify=False)
+    res = requests.get(f'{baseUrl}/uerp/v1/demo/device/cart?$archive', headers=headers, verify=False)
     res.raise_for_status()
     for cart in res.json():
-        requests.delete(f'{baseUrl}/uerp/v1/demo/device/cart/{cart["id"]}', headers=headers, verify=False)
+        requests.delete(f'{baseUrl}/uerp/v1/demo/device/cart/{cart["id"]}?$force=true', headers=headers, verify=False)
 
-    res = requests.get(f'{baseUrl}/uerp/v1/demo/operation/round', headers=headers, verify=False)
+    res = requests.get(f'{baseUrl}/uerp/v1/demo/operation/round?$archive', headers=headers, verify=False)
     res.raise_for_status()
     for round in res.json():
-        requests.delete(f'{baseUrl}/uerp/v1/demo/operation/round/{round["id"]}', headers=headers, verify=False)
+        requests.delete(f'{baseUrl}/uerp/v1/demo/operation/round/{round["id"]}?$force=true', headers=headers, verify=False)
 
 def insert():
     with open('temp-data.json', 'rb') as fd:
