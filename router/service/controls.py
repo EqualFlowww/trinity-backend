@@ -62,6 +62,10 @@ class Control(MeshControl):
         if username not in self._sockets: self._sockets[username] = []
         if socket not in self._sockets[username]: self._sockets[username].append(socket)
         if socket not in self._admins: self._admins.append(socket)
+
+        LOG.DEBUG(self._sockets[username])
+        LOG.DEBUG(self._admins)
+
         while True:
             try: await self.parseAdminData(token, org, await socket.receive_json())
             except WebSocketDisconnect:
@@ -99,6 +103,10 @@ class Control(MeshControl):
         await socket.accept()
         if username not in self._sockets: self._sockets[username] = []
         if socket not in self._sockets[username]: self._sockets[username].append(socket)
+
+        LOG.DEBUG(self._sockets[username])
+        LOG.DEBUG(self._admins)
+
         cart = await Cart.readModelByID(cartId, token=token, org=org)
         await self.sendDataToUsername(username, 'md', cart.model_dump())
         while True:
