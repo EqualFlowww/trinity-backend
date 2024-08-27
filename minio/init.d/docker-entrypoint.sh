@@ -2,7 +2,7 @@
 
 # eqpls
 echo -n "export MINIO_IDENTITY_OPENID_CLIENT_SECRET_PRIMARY_IAM=" > /client_secret
-curl -s "http://uerp:8090/internal/client/secret?org=eqpls&client=minio" >> /client_secret
+curl -s "http://uerp:8090/internal/client/secret?org=trinity&client=minio" >> /client_secret
 . /client_secret
 
 # If command starts with an option, prepend minio.
